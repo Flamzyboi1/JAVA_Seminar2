@@ -62,7 +62,7 @@ public class professor {
 		// no -arg constructor
 		public professor() {
 			setId();
-			setName("karlis");
+			setName("Karlis");
 			setsurName("Immers");
 			setdegree(profDegree.phd);
 		

@@ -2,6 +2,8 @@ package service;
 
 import model.Country;
 import model.Student;
+import model.profDegree;
+import model.professor;
 
 public class mainService {
 
@@ -20,6 +22,12 @@ public class mainService {
         Student stud4 = new Student("HY987654","Aiga","Estere",
         		"ICC",2009, Country.Lithuainia, "LT23766");
         System.out.println(stud4);
+        
+        System.out.println("---------PROFESSORS---------");
+        professor prof1 = new professor();
+        System.out.println(prof1);
+        professor prof2 = new professor ("Estere","Vitola",profDegree.master);
+        System.out.println(prof2);
 	}
 
 }
