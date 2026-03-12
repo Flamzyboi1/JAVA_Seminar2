@@ -59,6 +59,7 @@ public class professor {
 			}
 			
 		}
+		// no -arg constructor
 		public professor() {
 			setId();
 			setName("karlis");
@@ -66,6 +67,20 @@ public class professor {
 			setdegree(profDegree.phd);
 		
 		}
+		//arg-constructor
+		public professor(String inputName, String inputsurName,profDegree inputDegree) {
+			setId();
+			setName(inputName);
+			setsurName(inputsurName);
+			setdegree(inputDegree);
+		}
+		//to string
+		public String toString() {
+			//0: karina Skirmante (master)
+			String result = id + ": " + name + " " + surName + "(" + degree + ")";
+			return result;
+		}
+		
 		
 		
 		}
