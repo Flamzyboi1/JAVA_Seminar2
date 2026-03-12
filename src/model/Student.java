@@ -61,10 +61,17 @@ public class Student {
 	public int setbirthYear() {
 		
 	}
-	public Country setcountry () {
+	public void setcountry (Country inputCountry) {
+		if(inputCountry != null) {
+			country = inputCountry;
+		}
+		else
+		{
+			country = Country.unknown;
+		}
 		
 	}
-	public void setpassportNumber () {
+	public void setpassportNumber (String inputpassportNumber) {
 		
 	}
 	// no -arg constructor
