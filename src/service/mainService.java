@@ -13,7 +13,7 @@ public class mainService {
         		"BES",1996, Country.other, "GH23766");
         System.out.println(stud2);
         
-        Student stud3 = new Student("BF987654","Agnese","kelechi",
+        Student stud3 = new Student("BF987654","Agnese","Kelechi",
         		"ITF",2000, Country.Nigeria, "NG23766");
         System.out.println(stud3);
         

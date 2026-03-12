@@ -59,4 +59,13 @@ public class professor {
 			}
 			
 		}
-}
+		public professor() {
+			setId();
+			setName("karlis");
+			setsurName("Immers");
+			setdegree(profDegree.phd);
+		
+		}
+		
+		
+		}
