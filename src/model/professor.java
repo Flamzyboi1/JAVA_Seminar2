@@ -6,6 +6,9 @@ public class professor {
 	private String name;
 	private String surName;
 	private profDegree degree;
+	
+	//helper variable and no need to create get or set for it
+	private static long counter = 0;
 
 //2. getters
     public long getid() {
@@ -21,6 +24,11 @@ public class professor {
     	return degree;
     }
     //setters
+    public void setId() {
+    	id = counter;
+    	counter++;
+    }
+    
     public void setName(String inputName) {
 		if ((inputName != null) && (!inputName.isEmpty())
 				&&(inputName.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?"))){
@@ -40,5 +48,15 @@ public class professor {
 				{
 					surName = "Unknown";
 				}
+		}
+		public void setdegree (profDegree inputdegree) {
+			if(inputdegree != null) {
+				degree = inputdegree;
+			}
+			else
+			{
+				degree = profDegree.unknown;
+			}
+			
 		}
 }
