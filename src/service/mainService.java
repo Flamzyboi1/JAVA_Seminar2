@@ -11,7 +11,6 @@ public class mainService {
 	public static void main(String[] args) {	
         Student stud1 = new Student(); //default Favour
         System.out.println(stud1);
-        //  bfgh
         
         System.out.println("-------Student------");
         Student stud2 = new Student("AB987654","John","Sarfo",
