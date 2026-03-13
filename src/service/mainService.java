@@ -1,6 +1,7 @@
 package service;
 
 import model.Country;
+import model.Grade;
 import model.Student;
 import model.course;
 import model.profDegree;
@@ -37,6 +38,16 @@ public class mainService {
         
         course course2 = new course("Data Structures", 6, prof2);
         System.out.println(course2);
+        
+        System.out.println("------Grade--------");
+        Grade gr1 = new Grade();
+        System.out.println(gr1);
+        Grade gr2 = new Grade (6,stud4, course2);
+        System.out.println(gr2);
+        Grade gr3 = new Grade (4,stud2, course2);
+        System.out.println(gr3);
+        Grade gr4 = new Grade (7,stud3, course1);
+        System.out.println(gr4);
 	}
 
 }

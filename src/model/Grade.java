@@ -77,7 +77,7 @@ public class Grade {
  //.6 to string
     public String toString() {
     	//20000: F.Obidiaso got 10 in Java
-    	String result = id + ": " + student.getName().charAt(0)+ ". " +  student.getsurName() + "got" + Value + "in " + Course.gettitle();
+    	String result = id + ": " + student.getName().charAt(0)+ ". " +  student.getsurName() + " got " + Value +  " in " + Course.gettitle();
 		return result;
 	}
 
