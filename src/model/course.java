@@ -62,21 +62,26 @@ public class course {
 	//4. no args constructor
 	public course() {
 		setId();
-		settitle("Java programming");
+		settitle("Java");
 		setcreditPoint(6);
 		setprofessor(new professor());
 	}
 	
 	//5. args constructors
-		public course(long inputid, String inputtitle, int inputcreditpoint,professor inputprofessor) {
+		public course(String inputtitle, int inputcreditpoint,professor inputprofessor) {
 			setId();
 			settitle(inputtitle);
 			setcreditPoint(inputcreditpoint);
 			setprofessor(inputprofessor);
+			
+		}
+	         
 	//6. to string
 			public String toString() {
-				//0: karina Skirmante (master)
-				String result = id + ": " +  + " " + surName + "(" + degree + ")";
+				//0: java programming (6CP),k. Skirmante
+				String result = id + ": " + title + "(" + creditPoint 
+						+ "), "+ professor.getname().charAt(0)
+						+ ". " + professor.getsurName();
 				return result;
 			}
 	//7. additional functions(if necessary)
