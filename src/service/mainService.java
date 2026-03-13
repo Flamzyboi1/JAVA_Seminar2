@@ -39,7 +39,7 @@ public class mainService {
         course course2 = new course("Data Structures", 6, prof2);
         System.out.println(course2);
         
-        System.out.println("------Grade--------");
+        System.out.println("-------Grade--------");
         Grade gr1 = new Grade();
         System.out.println(gr1);
         Grade gr2 = new Grade (6,stud4, course2);
