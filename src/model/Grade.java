@@ -62,13 +62,26 @@ public class Grade {
    //4. no-args constructor
     public Grade() {
     	setid();
-    	setValue(9);
+    	setValue(10);
     	setstudent(new Student());
     	setcourse(new course());
     }
-	      
-   
+    
+  //5.  arg constructors	      
+    public Grade(int inputValue,Student inputStudent,course inputCourse) {
+		setid();
+		setValue(inputValue);
+		setstudent(inputStudent);
+		setcourse(inputCourse);
+		}
+ //.6 to string
+    public String toString() {
+    	//20000: F.Obidiaso got 10 in Java
+    	String result = id + ": " + student.getName().charAt(0)+ ". " +  student.getsurName() + "got" + Value + "in " + Course.gettitle();
+		return result;
+	}
+
 	
-
-
+    
+	
 }
