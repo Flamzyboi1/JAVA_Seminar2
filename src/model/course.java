@@ -54,7 +54,7 @@ public class course {
 				professor = inputprofessor;
 			}
 		  else
-			{
+		  {
 				professor = new professor();
 			}
 			
