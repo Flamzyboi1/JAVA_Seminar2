@@ -42,6 +42,7 @@ public class mainService {
         allStudents.add(stud1);
         allStudents.add(stud2);
         allStudents.add(stud3);
+        allStudents.add(stud4);
         System.out.println(allStudents);
 
         System.out.println("-------Students from latvia------");
@@ -80,6 +81,36 @@ public class mainService {
         allgrades.addAll(Arrays.asList(gr1, gr2, gr3, gr4));
         System.out.println(allgrades);
         
+        System.out.println("-----------PROFESSORS WITH MASTERS DEGREE-----------");
+        filterAllProfessorsWithSpecificDegree(profDegree.master);
+        System.out.println("-----------PROFESSORS WITH PHD DEGREE-----------");
+        filterAllProfessorsWithSpecificDegree(profDegree.phd);
+        
+        
+        System.out.println("-----------STUDENTS OLDER THAN 2005-----------");
+        filterAllStudentWithSpecificBirthYear();
+        
 	}
-
+	//Filtering
+	public static void filterAllProfessorsWithSpecificDegree(profDegree degree) {
+		for(professor tempS : allprofessors) {
+			if(tempS.getdegree().equals(degree)) {
+				System.out.println(tempS);
+			}
+		}
+	}
+	public static void filterAllStudentWithSpecificBirthYear() {
+		for(Student tempA : allStudents) {
+			if(tempA.getbirthYear()>=2005) {
+				System.out.println(tempA);
+				
+			}
+		}
+	}
+	public static void filterAllStudentWithSpecificFaculty() {
+		for(Student tempB : allStudents) {
+			
+		}
+	}
+          
 }
