@@ -124,10 +124,15 @@ public class mainService {
 			try {
 				createNewPofessor("Karina","Skirmante",profDegree.master, "KI13445");
 				System.out.println(allprofessors);
+				
+				System.out.println("---------R retrive for professor--------");
+				
+				System.out.println(getProfessorById(4));
 			}
 			catch(Exception e) {
 				System.out.println(e.getMessage());
 			}
+			
 	
 	}
 	//Filtering
@@ -226,5 +231,20 @@ public class mainService {
 		professor newProfessor = new professor( inputName, inputsurName,inputDegree, inputpassportNumber);
 			allprofessors.add(newProfessor);
 		
+	}
+	
+	//R - retrive by id
+	public static professor getProfessorById(long inputId) throws Exception{
+		//TODO chck input params
+		if(inputId < 0) {
+			Exception myExc = new Exception("Id should be 0 or positive");
+		}
+		for(professor tempP : allprofessors) {
+			if(tempP.getid() == inputId) {
+				return tempP;
+			}
+		}
+		Exception myExc =  new Exception("No such professor with id" + inputId);
+		throw myExc;
 	}
 }
