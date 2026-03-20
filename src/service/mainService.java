@@ -55,7 +55,7 @@ public class mainService {
         
         System.out.println("---------PROFESSORS---------");
         professor prof1 = new professor();
-        professor prof2 = new professor ("Estere","Vitola",profDegree.master,"EV426578");
+        professor prof2 = new professor ("Estere","Vitola",profDegree.master,"EV42658");
      
         allprofessors.add(prof1);
         allprofessors.add(prof2);
@@ -120,7 +120,14 @@ public class mainService {
 			System.out.println(e.getMessage());
 		}
         
-				
+			System.out.println("---------CRUD FOR PROFESSOR--------");
+			try {
+				createNewPofessor("Karina","Skirmante",profDegree.master, "KI13445");
+				System.out.println(allprofessors);
+			}
+			catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
 	
 	}
 	//Filtering
@@ -205,6 +212,19 @@ public class mainService {
 		{
 			return filteredGrade;
 		}
+		
+	}
+	//CRUD - C CREATE; R - RETRIVE; U - UPDADE; D - DELETE
+	public static void createNewPofessor(String inputName, String inputsurName,profDegree inputDegree, String inputpassportNumber) throws Exception{
+		//TODO check input params
+		for(professor tempP : allprofessors) {
+			if(tempP.getpassportNumber().equals(inputpassportNumber)) {
+				Exception myExc = new Exception("Professor already exists in the system");
+				throw myExc;
+			}
+		}
+		professor newProfessor = new professor( inputName, inputsurName,inputDegree, inputpassportNumber);
+			allprofessors.add(newProfessor);
 		
 	}
 }

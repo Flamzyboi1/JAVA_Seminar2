@@ -24,7 +24,7 @@ public class professor {
     public profDegree getdegree() {
     	return degree;
     }
-    public String passportNumber() {
+    public String getpassportNumber() {
     	return passportNumber;
     }
     //setters
