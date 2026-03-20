@@ -111,6 +111,14 @@ public class mainService {
         catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+        try {
+        	ArrayList<Grade> result4
+        = filterfailedGrades();
+    		System.out.println(result4);
+        }
+        catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
         
 				
 	
@@ -179,6 +187,23 @@ public class mainService {
 		}
 		else {
 			return filteredcourse;
+		}
+		
+	}
+	public static ArrayList<Grade>filterfailedGrades()throws Exception{
+		ArrayList<Grade>filteredGrade = new ArrayList<Grade>();
+		for(Grade tempG : allgrades) {
+			if(tempG.getValue() < 4) {
+				filteredGrade.add(tempG);
+			}
+		}
+		if(filteredGrade.isEmpty()) {
+			Exception myExc = new Exception ("there is no Grade which is below 4");
+			throw myExc;
+		}
+		else
+		{
+			return filteredGrade;
 		}
 		
 	}
