@@ -17,7 +17,7 @@ public class mainService {
     private static ArrayList<professor>allprofessors = 
                                                 new ArrayList<professor>();
     private static ArrayList<Grade>allgrades = 
-                                                        new ArrayList<Grade>();
+                                                new ArrayList<Grade>();
 
 
 
@@ -86,10 +86,17 @@ public class mainService {
         System.out.println("-----------PROFESSORS WITH PHD DEGREE-----------");
         filterAllProfessorsWithSpecificDegree(profDegree.phd);
         
-        
-        System.out.println("-----------STUDENTS OLDER THAN 2005-----------");
-        filterAllStudentWithSpecificBirthYear();
-        
+        try
+		{
+		ArrayList<Student> result 
+		= filterAllStudentsWhichBirtyearIsLargerThan(2007);
+		System.out.println(result);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+				
+	
 	}
 	//Filtering
 	public static void filterAllProfessorsWithSpecificDegree(profDegree degree) {
@@ -99,13 +106,30 @@ public class mainService {
 			}
 		}
 	}
-	public static void filterAllStudentWithSpecificBirthYear() {
-		for(Student tempA : allStudents) {
-			if(tempA.getbirthYear()>=2005) {
-				System.out.println(tempA);
-				
+	public static ArrayList<Student> 
+	filterAllStudentsWhichBirtyearIsLargerThan(int inputBirthyearThreshold) throws Exception
+	{
+		ArrayList<Student> filteredStudents = new ArrayList<Student>();
+		for(Student tempS : allStudents) {
+			if(tempS.getbirthYear() >= inputBirthyearThreshold) {
+				filteredStudents.add(tempS);
 			}
 		}
+
+
+		if(filteredStudents.isEmpty()) {
+			Exception myExc = new Exception
+				("There is no student which birth year is larger than " + inputBirthyearThreshold);
+			throw myExc;
+		}
+		else
+		{
+			return filteredStudents;
+		}
+		
+				
+		
+		
 	}
 	public static void filterAllStudentWithSpecificFaculty() {
 		for(Student tempB : allStudents) {
