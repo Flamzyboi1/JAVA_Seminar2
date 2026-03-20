@@ -103,6 +103,14 @@ public class mainService {
         catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+        try {
+        	ArrayList<course> result3 
+        = filteredCoursesByProfessorId(1);
+    		System.out.println(result3);
+        }
+        catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
         
 				
 	
