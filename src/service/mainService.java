@@ -95,6 +95,15 @@ public class mainService {
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+        try {
+        	ArrayList<Student> result2 
+    		= filterAllStudentWhichFacultyisITF("ITF");
+    		System.out.println(result2);
+        }
+        catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+        
 				
 	
 	}
@@ -131,10 +140,38 @@ public class mainService {
 		
 		
 	}
-	public static void filterAllStudentWithSpecificFaculty() {
-		for(Student tempB : allStudents) {
-			
+	public static ArrayList<Student>filterAllStudentWhichFacultyisITF(String inputFaculty) throws Exception {
+		ArrayList<Student> filteredStudent = new ArrayList<Student>();
+		for(Student tempS : allStudents) {
+			if(tempS.getfaculty().equals(inputFaculty)) {
+				filteredStudent.add(tempS);
+			}
+		}
+		if(filteredStudent.isEmpty()) {
+			Exception myExc = new Exception
+				("There is no student which faculty is" + inputFaculty);
+			throw myExc;
+		}
+		else
+		{
+			return filteredStudent;
 		}
 	}
-          
+       //which leading professor ID is 1\
+	public static ArrayList<course>filteredCoursesByProfessorId(long inputId)throws Exception{
+		ArrayList<course>filteredcourse = new ArrayList<course>();
+		for(course tempC :allcourses) {
+			if(tempC.getprofessor().getid()==inputId) {
+				filteredcourse.add(tempC);
+			}
+		}
+		if(filteredcourse.isEmpty()) {
+			Exception myExc = new Exception("There is no course which leading professor with ID 1" + inputId);
+			throw myExc;
+		}
+		else {
+			return filteredcourse;
+		}
+		
+	}
 }
