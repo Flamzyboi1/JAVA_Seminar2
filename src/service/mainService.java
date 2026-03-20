@@ -55,7 +55,7 @@ public class mainService {
         
         System.out.println("---------PROFESSORS---------");
         professor prof1 = new professor();
-        professor prof2 = new professor ("Estere","Vitola",profDegree.master);
+        professor prof2 = new professor ("Estere","Vitola",profDegree.master,"EV426578");
      
         allprofessors.add(prof1);
         allprofessors.add(prof2);
