@@ -125,6 +125,11 @@ public class mainService {
 				createNewPofessor("Karina","Skirmante",profDegree.master, "KI13445");
 				System.out.println(allprofessors);
 				
+				updateProfessorById(1, "Vairis", "Caune", profDegree.phd);
+				System.out.println(allprofessors);
+				deleteProfessorById(1);
+				System.out.println(allprofessors);
+				
 				System.out.println("---------R retrive for professor--------");
 				
 				System.out.println(getProfessorById(4));
@@ -246,5 +251,20 @@ public class mainService {
 		}
 		Exception myExc =  new Exception("No such professor with id" + inputId);
 		throw myExc;
+	}
+	// U - update by id
+	public static void updateProfessorById(long inputID,String inputName, String inputsurName,profDegree inputDegree) throws Exception{
+		professor profForUpdate =getProfessorById(inputID);
+		//TODO check input parms
+		profForUpdate.setName(inputName);
+		profForUpdate.setsurName(inputsurName);
+		profForUpdate.setdegree(inputDegree);
+	}
+	
+	//D -  delete by id
+	public static void deleteProfessorById(long inputID) throws Exception{
+		professor profForDeleting =getProfessorById(inputID);
+		allprofessors.remove(profForDeleting);
+
 	}
 }
