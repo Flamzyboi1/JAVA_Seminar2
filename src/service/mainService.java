@@ -2,6 +2,7 @@ package service;
 
 import model.Country;
 import model.Grade;
+import model.Person;
 import model.Student;
 import model.course;
 import model.profDegree;
@@ -10,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class mainService {
-	private static ArrayList<Student>allStudents = 
-			                                    new ArrayList<Student>();
+	
+	private static ArrayList<Person>allPersons = 
+			                                    new ArrayList<Person>();
 	private static ArrayList<course>allcourses = 
                                                 new ArrayList<course>();
-    private static ArrayList<professor>allprofessors = 
-                                                new ArrayList<professor>();
+                                                
     private static ArrayList<Grade>allgrades = 
                                                 new ArrayList<Grade>();
 
@@ -26,7 +27,7 @@ public class mainService {
         Student stud1 = new Student(); //default Favour
         System.out.println(stud1);
         
-        System.out.println("-------Student------");
+        System.out.println("-------All Persons------");
         Student stud2 = new Student("AB987654","John","Sarfo",
         		"BES",1996, Country.Latvia, "GH23766");
         System.out.println(stud2);
@@ -39,29 +40,45 @@ public class mainService {
         		"ICC",2009, Country.Lithuainia, "LT23766");
         System.out.println(stud4);
         
-        allStudents.add(stud1);
-        allStudents.add(stud2);
-        allStudents.add(stud3);
-        allStudents.add(stud4);
-        System.out.println(allStudents);
+        allPersons.add(stud1);
+        allPersons.add(stud2);
+        allPersons.add(stud3);
+        allPersons.add(stud4);
+        System.out.println(allPersons);
+        
+        for(Person tempP :allPersons) {
+        	if(tempP instanceof Student) {// if this person is actually a student
+        		System.out.println(tempP);
+        	}
+        }
 
         System.out.println("-------Students from latvia------");
         
-        for(int i = 0; i < allStudents.size();i++) {
-        	if(allStudents.get(i).getcountry().equals(Country.Latvia)) {
-        		System.out.println(allStudents.get(i));
+        for(int i = 0; i < allPersons.size();i++) {
+        	if(allPersons.get(i)instanceof Student){
+        		//check if the person is actually a student
+        		Student tempStudent = (Student)allPersons.get(i);
+        	
+        	if(tempStudent.getcountry().equals(Country.Latvia)) {
+        		System.out.println(tempStudent);
         	}
-        }
+         }
+       }
         
         System.out.println("---------PROFESSORS---------");
         professor prof1 = new professor();
         professor prof2 = new professor ("Estere","Vitola",profDegree.master,"EV42658");
      
-        allprofessors.add(prof1);
-        allprofessors.add(prof2);
+        allPersons.add(prof1);
+        allPersons.add(prof2);
         
-        System.out.println(allprofessors);
-
+        System.out.println(allPersons);
+        for(Person tempP : allPersons) {
+        if(tempP instanceof professor){
+    		//check if the person is actually a student
+    		System.out.println(tempP);
+    		}
+        }
         
         
         
@@ -142,9 +159,12 @@ public class mainService {
 	}
 	//Filtering
 	public static void filterAllProfessorsWithSpecificDegree(profDegree degree) {
-		for(professor tempS : allprofessors) {
-			if(tempS.getdegree().equals(degree)) {
-				System.out.println(tempS);
+		for(professor tempP : allPersons) {
+			if(tempP instanceof professor) {
+				professor temprofessor = (professor)tempP;
+				if(temprofessor.getdegree().equals(degree)) {
+					System.out.println(temprofessor);
+				}
 			}
 		}
 	}

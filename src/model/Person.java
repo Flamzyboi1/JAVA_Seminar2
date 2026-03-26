@@ -52,7 +52,7 @@ public class Person {
 	public Person() {
 		setName("Samuil");
 		setsurName("Irfan");
-		setpassportNumber("Qw987654");
+		setpassportNumber("Qw98765");
 	}
 	public Person(String inputName,String inpursurName,String inputpassportNumber) {
 		setName(inputName);
