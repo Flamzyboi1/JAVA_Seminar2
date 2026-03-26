@@ -140,12 +140,12 @@ public class mainService {
 			System.out.println("---------CRUD FOR PROFESSOR--------");
 			try {
 				createNewPofessor("Karina","Skirmante",profDegree.master, "KI13445");
-				System.out.println(allprofessors);
+				System.out.println(allPersons);
 				
 				updateProfessorById(1, "Vairis", "Caune", profDegree.phd);
-				System.out.println(allprofessors);
+				System.out.println(allPersons);
 				deleteProfessorById(1);
-				System.out.println(allprofessors);
+				System.out.println(allPersons);
 				
 				System.out.println("---------R retrive for professor--------");
 				
@@ -159,7 +159,7 @@ public class mainService {
 	}
 	//Filtering
 	public static void filterAllProfessorsWithSpecificDegree(profDegree degree) {
-		for(professor tempP : allPersons) {
+		for(Person tempP : allPersons) {
 			if(tempP instanceof professor) {
 				professor temprofessor = (professor)tempP;
 				if(temprofessor.getdegree().equals(degree)) {
@@ -172,10 +172,13 @@ public class mainService {
 	filterAllStudentsWhichBirtyearIsLargerThan(int inputBirthyearThreshold) throws Exception
 	{
 		ArrayList<Student> filteredStudents = new ArrayList<Student>();
-		for(Student tempS : allStudents) {
-			if(tempS.getbirthYear() >= inputBirthyearThreshold) {
-				filteredStudents.add(tempS);
-			}
+		for(Person tempS : allPersons) {
+			if(tempS instanceof Student) {
+				Student tempStudent = (Student)tempS;
+			    if(tempStudent.getbirthYear() >= inputBirthyearThreshold) {
+				filteredStudents.add(tempStudent);
+			    }
+		   }
 		}
 
 
@@ -195,9 +198,13 @@ public class mainService {
 	}
 	public static ArrayList<Student>filterAllStudentWhichFacultyisITF(String inputFaculty) throws Exception {
 		ArrayList<Student> filteredStudent = new ArrayList<Student>();
-		for(Student tempS : allStudents) {
-			if(tempS.getfaculty().equals(inputFaculty)) {
-				filteredStudent.add(tempS);
+		for(Person tempP : allPersons) {
+			if(tempP instanceof Student) {
+				Student tempStudent = (Student)tempP;
+			    if(tempStudent.getfaculty().equals(inputFaculty)) {
+				filteredStudent.add(tempStudent);
+			    }
+			
 			}
 		}
 		if(filteredStudent.isEmpty()) {
@@ -247,15 +254,15 @@ public class mainService {
 	//CRUD - C CREATE; R - RETRIVE; U - UPDADE; D - DELETE
 	public static void createNewPofessor(String inputName, String inputsurName,profDegree inputDegree, String inputpassportNumber) throws Exception{
 		//TODO check input params
-		for(professor tempP : allprofessors) {
+		for(Person tempP : allPersons) {
+			//TODO IF WE WANT WE CAN CHECK FOR PROFESSOR BUT PASSPORTNUMBER is already stored in person class
 			if(tempP.getpassportNumber().equals(inputpassportNumber)) {
 				Exception myExc = new Exception("Professor already exists in the system");
 				throw myExc;
 			}
 		}
 		professor newProfessor = new professor( inputName, inputsurName,inputDegree, inputpassportNumber);
-			allprofessors.add(newProfessor);
-		
+			allPersons.add(newProfessor);
 	}
 	
 	//R - retrive by id
@@ -264,11 +271,16 @@ public class mainService {
 		if(inputId < 0) {
 			Exception myExc = new Exception("Id should be 0 or positive");
 		}
-		for(professor tempP : allprofessors) {
-			if(tempP.getid() == inputId) {
-				return tempP;
+		for(Person tempP : allPersons) {
+			if(tempP instanceof professor) {
+				professor tempProfessor = (professor)tempP;
+			
+			
+			if(tempProfessor.getid() == inputId) {
+				return tempProfessor;
 			}
 		}
+	}
 		Exception myExc =  new Exception("No such professor with id" + inputId);
 		throw myExc;
 	}
@@ -284,7 +296,7 @@ public class mainService {
 	//D -  delete by id
 	public static void deleteProfessorById(long inputID) throws Exception{
 		professor profForDeleting =getProfessorById(inputID);
-		allprofessors.remove(profForDeleting);
+		allPersons.remove(profForDeleting);
 
 	}
 }
