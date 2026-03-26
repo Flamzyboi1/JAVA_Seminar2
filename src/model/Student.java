@@ -2,22 +2,16 @@ package model;
 
 public class Student {
 	private String matriculaNumber;
-	private String name;
-	private String surname;
+	
 	private String faculty;
 	private int birthYear;
 	private Country country;
-	private String passportNumber;
+	
 	//getters
 	public String getMatriculaNumber() {
 		return matriculaNumber;
 	}
-	public String getName() {
-		return  name;
-	}
-	public String getsurName() {
-		return  surname;
-	}
+	
 	public String getfaculty() {
 		return  faculty;
 	}
@@ -27,21 +21,9 @@ public class Student {
 	public Country getcountry () {
 		return  country;
 	}
-	public String getpassportNumber () {
-		return  passportNumber;
-	}
+	
 	//setters
-	public void setName(String inputName) {
-		if ((inputName != null) && (!inputName.isEmpty())
-				&&(inputName.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?"))){
-		name = inputName;
-	}
-	else 
-	{
-		name = "Unknown";
-	 }
-		
-	}
+	
 	public void setmatriculaNumber(String inputMatriculaNumber) {
 		if ((inputMatriculaNumber != null) && (!inputMatriculaNumber.isEmpty())
 				&&(inputMatriculaNumber.matches("[A-Z]{2}[0-9]{6}?"))){
@@ -52,16 +34,7 @@ public class Student {
 		name = "Unknown";
 	 }
 	}
-	public void setsurName(String inputSurname) {
-		if( (inputSurname != null) && (!inputSurname.isEmpty()) 
-				&& (inputSurname.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?"))) {
-				surname = inputSurname;
-			}
-			else
-			{
-				surname = "Unknown";
-			}
-	}
+	
 	public void setfaculty(String inputFaculty) {
 		if((inputFaculty != null) && (!inputFaculty.isEmpty())
 				&& (inputFaculty.matches("[A-Za-z ]{3,100}"))) {
@@ -91,17 +64,7 @@ public class Student {
 		}
 		
 	}
-	public void setpassportNumber (String inputpassportNumber) {
-		if(inputpassportNumber != null && (!inputpassportNumber.isEmpty())
-		&& (inputpassportNumber.matches("[A-Z]{2}[0-9]{5}"))){
-			passportNumber = inputpassportNumber;
-		}
-		else
-		{
-			passportNumber = "unknown";
-		}
-		
-	}
+	
 	// no -arg constructor  
 	public Student() {
 		setmatriculaNumber("AB123456");
