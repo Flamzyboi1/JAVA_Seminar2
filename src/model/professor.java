@@ -1,12 +1,10 @@
 package model;
 
-public class professor {
+public class professor extends Person{
 	//1.variables
 	private long id;
-	private String name;
-	private String surName;
 	private profDegree degree;
-	private String passportNumber;
+	
 	
 	//helper variable and no need to create get or set for it
 	private static long counter = 0;
@@ -15,12 +13,7 @@ public class professor {
     public long getid() {
     	return id;
     }
-    public String getname() {
-    	return name;
-    }
-    public String getsurName() {
-    	return surName;
-    }
+    
     public profDegree getdegree() {
     	return degree;
     }
@@ -32,27 +25,7 @@ public class professor {
     	id = counter;
     	counter++;
     }
-    
-    public void setName(String inputName) {
-		if ((inputName != null) && (!inputName.isEmpty())
-				&&(inputName.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?"))){
-		name = inputName;
-	}
-	else 
-	{
-		name = "Unknown";
-		}
-	 }
-		public void setsurName(String inputSurname) {
-			if( (inputSurname != null) && (!inputSurname.isEmpty()) 
-					&& (inputSurname.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?"))) {
-					surName = inputSurname;
-				}
-				else
-				{
-					surName = "Unknown";
-				}
-		}
+ 
 		public void setdegree (profDegree inputdegree) {
 			if(inputdegree != null) {
 				degree = inputdegree;
@@ -62,38 +35,31 @@ public class professor {
 				degree = profDegree.unknown;
 				}
 			}
-			 public void setpassportNumber (String inputpassportNumber) {
-					if(inputpassportNumber != null && (!inputpassportNumber.isEmpty())
-							&& (inputpassportNumber.matches("[A-Z]{2}[0-9]{5}"))){
-								passportNumber = inputpassportNumber;
-							}
-							else
-							{
-								passportNumber = "unknown";
-							}
-							
-						}
+			
+						
 		// no -arg constructor
 		public professor() {
+			super("Karlis","Immers","KI07285");
 			setId();
-			setName("Karlis");
-			setsurName("Immers");
+			//setName("Karlis");
+			//setsurName("Immers");
 			setdegree(profDegree.phd);
-			setpassportNumber("KI07285");
+			//setpassportNumber("KI07285");
 		
 		}
 		//arg-constructor
 		public professor(String inputName, String inputsurName,profDegree inputDegree, String inputpassportNumber) {
+			super(inputName,inputsurName,inputpassportNumber);//this will call arg constructor from the person class
 			setId();
-			setName(inputName);
-			setsurName(inputsurName);
+			//setName(inputName);
+			//setsurName(inputsurName);
 			setdegree(inputDegree);
-			setpassportNumber(inputpassportNumber);
+			//setpassportNumber(inputpassportNumber);
 		}
 		//to string
 		public String toString() {
 			//0: karina Skirmante (master)
-			String result = id + ": " + name + " " + surName + "(" + degree + ")" + passportNumber;
+			String result = id + ": " + name + " " + surname + "(" + degree + ")" + passportNumber;
 			return result;
 		}
 		

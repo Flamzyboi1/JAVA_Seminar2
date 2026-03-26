@@ -80,7 +80,7 @@ public class course {
 			public String toString() {
 				//0: java programming (6CP),k. Skirmante
 				String result = id + ": " + title + "(" + creditPoint 
-						+ "), "+ professor.getname().charAt(0)
+						+ "), "+ professor.getName().charAt(0)
 						+ ". " + professor.getsurName();
 				return result;
 			}
